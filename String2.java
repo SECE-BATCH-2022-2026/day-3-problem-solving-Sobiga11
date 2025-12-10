@@ -1,33 +1,24 @@
 import java.util.Scanner;
-class String2{
+class String3{
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
-		int num1,num2,num3;
-		num1 = sc.nextInt();
-		num2 = sc.nextInt();
-		num3 = sc.nextInt();
-		int ans = UserMainCode.calculateSum(num1,num2,num3);
-		System.out.println(ans);
-		sc.close();
+		int n = sc.nextInt();
+		int [] arr = new int[n];
+		for(int i=0;i<n;i++){
+			arr[i] = sc.nextInt();
+		}
+		System.out.println(UserMainCode.findTriplet(arr));
 	}
 }
 
 class UserMainCode {
-	public static Integer calculateSum (Integer num1,Integer num2,Integer num3){
-		//Logic		
-		if(num1 == 13){
-			if(num3 == 13){
-				return 0;
-			} else {
-				return num3;	
+	public static boolean findTriplet (int [] arr){
+		int l = arr.length;
+		for(int i=0;i<l-3;i++){
+			if(arr[i] == arr[i+1] && arr[i+1]==arr[i+2]){
+				return true;
 			}
-			
-		} else if(num2 == 13){
-			return num1;
-		} else if(num3 == 13){
-			return num1+num2;
-		} else {
-			return num1+num2+num3;
 		}
+		return false;
 	}
 }
